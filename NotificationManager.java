@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class NotificationManager {
     private static NotificationManager instance;
@@ -33,20 +34,22 @@ public class NotificationManager {
         this.notifica = notifica;
     }
 
-    public void inviaNotifica(int tipo, String messaggio) {
+    public void inviaNotifica(String messaggio) {
         for (Observer observer : observers) {
 
-            notifica.creaNotifica(tipo, messaggio);
+            notifica.creaNotifica(((Utente) observer).getId(), messaggio);
 
             observer.update(messaggio, notifica);
         }
     }
 
-    public void creaNotifica(int tipo, String messaggio) {
+    public void setDecoratoreNotifica(String messaggio, Scanner scanner) {
         System.out.println("Come vuoi stampare la notifica?");
-        System.out.println("1 - Saluta");
+        System.out.println("1 - Timestamp");
         System.out.println("2 - Maiuscolo");
         System.out.println("3 - emoji");
+        System.out.println("4 - con saluto");
+        int tipo = scanner.nextInt();
         switch (tipo) {
             case 1:
                 setNotifica(new NotificaTimestamp(notifica));
