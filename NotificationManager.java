@@ -2,23 +2,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NotificationManager {
-    private static NotificationManager instance; 
-    private static Notifica notifica;
+    private static NotificationManager instance;
+    private Notifica notifica = new NotificaBase();
 
     private final List<Observer> observers = new ArrayList<>();
 
-    private NotificationManager() {}
+    private NotificationManager() {
+    }
 
-    //Imposta il NotificationManager come unica istanza
-    public static NotificationManager getInstance() { 
+    // Imposta il NotificationManager come unica istanza
+    public static NotificationManager getInstance() {
         if (instance == null) {
             instance = new NotificationManager();
-            notifica = new NotificaBase();
         }
         return instance;
     }
 
-    //Metodi per registrare, cancellare e inviare
+    // Metodi per registrare, cancellare e inviare
     public void register(Observer observer) {
         observers.add(observer);
         System.out.println("Utente aggiunto.");
@@ -32,31 +32,43 @@ public class NotificationManager {
     public void inviaNotifica(String messaggio) {
         for (Observer observer : observers) {
             observer.update(messaggio);
-            notifica.creaNotifica(((Utente)observer).getId(), messaggio);
+            notifica.creaNotifica(((Utente) observer).getId(), messaggio);
         }
     }
 
-    public void creaNotifica(int tipo){
-        switch (tipo){
-            case 1 : 
+    public void creaNotifica(int tipo, String messaggio) {
+        System.out.println("Come vuoi stampare la notifica?");
+        System.out.println("1 - Saluta");
+        System.out.println("2 - Maiuscolo");
+        System.out.println("3 - emoji");
+        switch (tipo) {
+            case 1:
                 notifica = new NotificaTimestamp(notifica);
-            break;
+                inviaNotifica(messaggio);
+                break;
 
-            case 2 : 
+            case 2:
                 notifica = new NotificaMaiuscolo(notifica);
-            break;
+                inviaNotifica(messaggio);
 
-            case 3 : 
+                break;
+
+            case 3:
                 notifica = new NotificaConSmileEmoji(notifica);
-            break;
+                inviaNotifica(messaggio);
 
-            case 4 : 
+                break;
+
+            case 4:
                 notifica = new NotificaConSaluto(notifica);
-            break;
+                inviaNotifica(messaggio);
 
-            default : 
+                break;
+
+            default:
                 System.out.println("Scelta non valida.");
-            break;
+                break;
         }
+
     }
 }

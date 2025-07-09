@@ -115,7 +115,9 @@ public class GestioneNotifiche {
                     System.out.println("2 - Maiuscolo");
                     System.out.println("3 - emoji");
                     int risposta = myScannerInt.nextInt();
-                    notManager.creaNotifica(risposta);
+                    System.out.println("Scegli il messaggio");
+                    String msg = myScannerStr.nextLine();
+                    notManager.creaNotifica(risposta, msg);
                     break;
                 //nel caso di default
                 default: 
