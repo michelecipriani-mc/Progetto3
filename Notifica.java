@@ -42,7 +42,6 @@ class NotificaTimestamp extends NotificaSpecializzata {
     @Override
     public String creaNotifica(int numeroUtente, String messaggio) {
         String messaggioSalvato = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")) + messaggio;
-        System.out.println(messaggioSalvato);
         return messaggioSalvato;
         
     }
@@ -58,7 +57,6 @@ class NotificaMaiuscolo extends NotificaSpecializzata {
     public String creaNotifica(int numeroUtente, String messaggio) {
 
         String messaggioSalvato = messaggio.toUpperCase();
-        System.out.println(messaggioSalvato);
         return messaggioSalvato;
     }
 }
@@ -72,7 +70,6 @@ class NotificaConSmileEmoji extends NotificaSpecializzata {
     @Override
     public String creaNotifica(int numeroUtente, String messaggio) {
         String messaggioSalvato = messaggio + " :-)";
-        System.out.println(messaggioSalvato);
         return messaggioSalvato;
     }
 }
@@ -86,7 +83,6 @@ class NotificaConSaluto extends NotificaSpecializzata {
     @Override
     public String creaNotifica(int numeroUtente, String messaggio) {
         String messaggioSalvato ="Salve" + messaggio;
-        System.out.println(messaggioSalvato);
         return messaggioSalvato;
     }
 }
