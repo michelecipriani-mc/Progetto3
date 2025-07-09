@@ -110,7 +110,19 @@ public class GestioneNotifiche {
                     notManager.inviaNotifica(messaggio);
                     break;
                 case 3:
-                    
+                    //possibili scelte di stampa
+                    System.out.println("1 - Saluta");
+                    System.out.println("2 - Maiuscolo");
+                    System.out.println("3 - emoji");
+                    Int risposta = myScannerInt.nextInt();
+                    switch (risposta) {
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                    }
                     break;
                 //nel caso di default
                 default: 
