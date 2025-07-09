@@ -10,6 +10,14 @@ public class Utente implements Observer {
         this.id = ++contatoreUtenti;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public int getId() {
         return id;
     }
