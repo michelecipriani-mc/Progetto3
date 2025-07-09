@@ -76,7 +76,7 @@ public class GestioneNotifiche {
             System.out.println("===MENù===");
             System.out.println("1 - Aggiungi utente");
             System.out.println("2 - Invia notifica");
-            System.out.println("3 - Stampa notifica");
+            System.out.println("3 - Personalizza e stampa notifica");
             System.out.println("4 - Esci");
             // prendo l'input di scelta e lo salvo nella variabile scelta
             scelta = myScannerInt.nextInt();
