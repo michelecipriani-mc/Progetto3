@@ -1,9 +1,10 @@
 public class Utente implements Observer {
 
     private String nome;
-    private static int contatoreUtenti = 0; 
-    private int id;                        
-    private Notifica decorator;
+
+    private static int contatoreUtenti = 0;
+    private int id;
+
 
     public Utente(String nome) {
         this.nome = nome;
@@ -26,15 +27,12 @@ public class Utente implements Observer {
         return contatoreUtenti;
     }
 
-    public void setDecorator(Notifica decorator) {
-        this.decorator = decorator;
-    }
-
     @Override
-    public void update(String messaggio) {
-        if (decorator != null) {
-            messaggio = decorator.creaNotifica(getId(), messaggio);
-        }
+    public void update(String messaggio, Notifica notificaNuova) {
+
+        messaggio = notificaNuova.creaNotifica(getId(), messaggio);
+
+
         System.out.println("[Utente " + id + "] " + messaggio);
     }
 }

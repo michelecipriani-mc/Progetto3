@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 
 public class NotificationManager {
     private static NotificationManager instance;
@@ -29,39 +31,41 @@ public class NotificationManager {
         System.out.println("Utente rimosso.");
     }
 
+    public void setNotifica(Notifica notifica) {
+        this.notifica = notifica;
+    }
+
     public void inviaNotifica(String messaggio) {
         for (Observer observer : observers) {
-            observer.update(messaggio);
+
             notifica.creaNotifica(((Utente) observer).getId(), messaggio);
+
+            observer.update(messaggio, notifica);
         }
     }
 
-    public void creaNotifica(int tipo, String messaggio) {
+    public void setDecoratoreNotifica(String messaggio, Scanner scanner) {
         System.out.println("Come vuoi stampare la notifica?");
-        System.out.println("1 - Saluta");
+        System.out.println("1 - Timestamp");
         System.out.println("2 - Maiuscolo");
         System.out.println("3 - emoji");
+        System.out.println("4 - con saluto");
+        int tipo = scanner.nextInt();
         switch (tipo) {
             case 1:
-                notifica = new NotificaTimestamp(notifica);
-                inviaNotifica(messaggio);
+                setNotifica(new NotificaTimestamp(notifica));
                 break;
 
             case 2:
-                notifica = new NotificaMaiuscolo(notifica);
-                inviaNotifica(messaggio);
-
+                setNotifica(new NotificaMaiuscolo(notifica));
                 break;
 
             case 3:
-                notifica = new NotificaConSmileEmoji(notifica);
-                inviaNotifica(messaggio);
-
+                setNotifica(new NotificaConSmileEmoji(notifica));
                 break;
 
             case 4:
-                notifica = new NotificaConSaluto(notifica);
-                inviaNotifica(messaggio);
+                setNotifica(new NotificaConSaluto(notifica));
 
                 break;
 
@@ -71,4 +75,13 @@ public class NotificationManager {
         }
 
     }
+
+    public Notifica getNotifica() {
+        return notifica;
+    }
+
+    public List<Observer> getObservers() {
+        return observers;
+    }
+
 }
