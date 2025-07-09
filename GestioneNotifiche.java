@@ -64,7 +64,6 @@
 
 // L’utente 3 non è più iscritto e non riceve nulla
 
-import java.util.Observer;
 import java.util.Scanner;
 
 public class GestioneNotifiche {

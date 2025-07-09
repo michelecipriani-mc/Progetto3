@@ -1,4 +1,4 @@
-public abstract class Utente implements Observer {
+public class Utente implements Observer {
 
     private String nome;
     private static int contatoreUtenti = 0; 
