@@ -110,6 +110,7 @@ public class GestioneNotifiche {
                     break;
                 case 3:
                     //possibili scelte di stampa
+                    System.out.println("Come vuoi stampare la notifica?");
                     System.out.println("1 - Saluta");
                     System.out.println("2 - Maiuscolo");
                     System.out.println("3 - emoji");
