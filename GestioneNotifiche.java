@@ -118,6 +118,7 @@ public class GestioneNotifiche {
                 case 4:
                     // resetta la notifica con un messaggio vuoto
                     notManager.setNotifica(new NotificaBase());
+                    System.out.println("Notifica resettata");
                     break;
                 default:
                     // se la scelta è 0 stampo l'uscita
