@@ -130,7 +130,7 @@ public class GestioneNotifiche {
                     }
                     break;
             }
-        } while (scelta != 4); // controllo lo stato della condizione
+        } while (scelta != 0); // controllo lo stato della condizione
         // chiusura degli scanner
 
         myScannerStr.close();
