@@ -64,18 +64,6 @@ class LowercaseDecorator extends Decorator {
 }
 
 // Decoratore Concreto
-class SmilingfaceDecorator extends Decorator {
-    public SmilingfaceDecorator(Messaggio messaggio) {
-        super(messaggio);
-    }
-
-    public void operation() {
-        super.operation();
-        System.out.println("Aggiunta funzionalità A");
-    }
-}
-
-// Decoratore Concreto
 class SmilingemojiDecorator extends Decorator {
     public SmilingemojiDecorator(Messaggio messaggio) {
         super(messaggio);
