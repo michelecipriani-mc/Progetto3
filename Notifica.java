@@ -42,7 +42,7 @@ class NotificaTimestamp extends NotificaSpecializzata {
     public String creaNotifica(int numeroUtente, String messaggio) {
         String messaggioSalvato = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))
                 + " " + super.creaNotifica(numeroUtente, messaggio);
-        return messaggioSalvato;
+
 
     }
 }
