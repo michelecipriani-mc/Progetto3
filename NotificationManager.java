@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class NotificationManager {
     private static NotificationManager instance;
     private Notifica notifica = new NotificaBase();
@@ -10,6 +9,14 @@ public class NotificationManager {
     private final List<Observer> observers = new ArrayList<>();
 
     private NotificationManager() {
+    }
+
+    public Notifica getNotifica() {
+        return notifica;
+    }
+
+    public List<Observer> getObservers() {
+        return observers;
     }
 
     // Imposta il NotificationManager come unica istanza
@@ -68,20 +75,11 @@ public class NotificationManager {
                 setNotifica(new NotificaConSaluto(notifica));
 
                 break;
-
             default:
                 System.out.println("Scelta non valida.");
                 break;
         }
 
-    }
-
-    public Notifica getNotifica() {
-        return notifica;
-    }
-
-    public List<Observer> getObservers() {
-        return observers;
     }
 
 }

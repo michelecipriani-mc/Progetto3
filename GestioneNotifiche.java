@@ -76,13 +76,14 @@ public class GestioneNotifiche {
             System.out.println("===MENù===");
             System.out.println("1 - Aggiungi utente");
             System.out.println("2 - Invia notifica");
-            System.out.println("3 - Stampa notifica");
-            System.out.println("4 - Esci");
+            System.out.println("3 - Personalizza e invia notifica");
+            System.out.println("4 - Resetta messaggio notifica");
+            System.out.println("0 - Esci");
             // prendo l'input di scelta e lo salvo nella variabile scelta
             scelta = myScannerInt.nextInt();
             // effttuo una verifica di correttezza della scelta altrimenti richiedo
 
-            while (scelta < 1 || scelta > 4) {
+            while (scelta < 0 || scelta > 4) {
                 System.out.println("Errore: comando non valido, inserisci un comando valido: ");
                 scelta = myScannerInt.nextInt();
             }
@@ -114,9 +115,14 @@ public class GestioneNotifiche {
                     notManager.inviaNotifica(msg);
                     break;
                 // nel caso di default
+                case 4:
+                    // resetta la notifica con un messaggio vuoto
+                    notManager.setNotifica(new NotificaBase());
+                    System.out.println("Notifica resettata");
+                    break;
                 default:
-                    // se la scelta è 4 stampo l'uscita
-                    if (scelta == 4) {
+                    // se la scelta è 0 stampo l'uscita
+                    if (scelta == 0) {
                         System.out.println("Programma terminato!");
                         // altrimenti stampo l'errore
 
@@ -125,7 +131,7 @@ public class GestioneNotifiche {
                     }
                     break;
             }
-        } while (scelta != 4); // controllo lo stato della condizione
+        } while (scelta != 0); // controllo lo stato della condizione
         // chiusura degli scanner
 
         myScannerStr.close();
