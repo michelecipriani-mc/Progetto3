@@ -32,14 +32,14 @@ public class NotificationManager {
     public void inviaNotifica(String messaggio) {
         for (Observer observer : observers) {
             observer.update(messaggio);
-            notifica.creaNotifica(observer.getId(), messaggio);
+            notifica.creaNotifica(((Utente)observer).getId(), messaggio);
         }
     }
 
     public void creaNotifica(int tipo){
         switch (tipo){
             case 1 : 
-                notifica = new NotificaTimeStamp(notifica);
+                notifica = new NotificaTimestamp(notifica);
             break;
 
             case 2 : 

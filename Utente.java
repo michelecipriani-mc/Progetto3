@@ -5,7 +5,7 @@ public abstract class Utente implements Observer {
     private int id;                        
     private Notifica decorator;
 
-    public Utente() {
+    public Utente(String nome) {
         this.nome = nome;
         this.id = ++contatoreUtenti;
     }
