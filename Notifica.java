@@ -71,7 +71,9 @@ class NotificaConSmileEmoji extends NotificaSpecializzata {
 
     @Override
     public String creaNotifica(int numeroUtente, String messaggio) {
-        return super.creaNotifica(numeroUtente, messaggio) + " :-)";
+        String messaggioSalvato = messaggio + " :-)";
+        System.out.println(messaggioSalvato);
+        return messaggioSalvato;
     }
 }
 
@@ -83,6 +85,8 @@ class NotificaConSaluto extends NotificaSpecializzata {
 
     @Override
     public String creaNotifica(int numeroUtente, String messaggio) {
-        return "Salve! " + super.creaNotifica(numeroUtente, messaggio);
+        String messaggioSalvato ="Salve" + messaggio;
+        System.out.println(messaggioSalvato);
+        return messaggioSalvato;
     }
 }
