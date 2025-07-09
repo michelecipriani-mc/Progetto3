@@ -11,7 +11,6 @@ public interface Notifica {
 // implementazione concreta dell'interfaccia component
 class NotificaBase implements Notifica {
 
-    
     @Override
     public String creaNotifica(int numeroUtente, String messaggio) {
         return "L'utente #" + numeroUtente + " " + messaggio;
@@ -41,9 +40,10 @@ class NotificaTimestamp extends NotificaSpecializzata {
 
     @Override
     public String creaNotifica(int numeroUtente, String messaggio) {
-        String messaggioSalvato = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")) + messaggio;
+        String messaggioSalvato = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))
+                + " " + super.creaNotifica(numeroUtente, messaggio);
         return messaggioSalvato;
-        
+
     }
 }
 
@@ -56,7 +56,7 @@ class NotificaMaiuscolo extends NotificaSpecializzata {
     @Override
     public String creaNotifica(int numeroUtente, String messaggio) {
 
-        String messaggioSalvato = messaggio.toUpperCase();
+        String messaggioSalvato = super.creaNotifica(numeroUtente, messaggio).toUpperCase();
         return messaggioSalvato;
     }
 }
@@ -69,7 +69,7 @@ class NotificaConSmileEmoji extends NotificaSpecializzata {
 
     @Override
     public String creaNotifica(int numeroUtente, String messaggio) {
-        String messaggioSalvato = messaggio + " :-)";
+        String messaggioSalvato = super.creaNotifica(numeroUtente, messaggio) + " :-)";
         return messaggioSalvato;
     }
 }
@@ -82,7 +82,7 @@ class NotificaConSaluto extends NotificaSpecializzata {
 
     @Override
     public String creaNotifica(int numeroUtente, String messaggio) {
-        String messaggioSalvato ="Salve" + messaggio;
+        String messaggioSalvato = "Salve! " + super.creaNotifica(numeroUtente, messaggio);
         return messaggioSalvato;
     }
 }
