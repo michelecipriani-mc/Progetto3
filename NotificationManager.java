@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class NotificationManager {
     private static NotificationManager instance;
     private Notifica notifica = new NotificaBase();
@@ -65,6 +66,7 @@ public class NotificationManager {
 
             case 4:
                 setNotifica(new NotificaConSaluto(notifica));
+
                 break;
 
             default:
@@ -81,4 +83,5 @@ public class NotificationManager {
     public List<Observer> getObservers() {
         return observers;
     }
+
 }

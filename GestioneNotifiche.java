@@ -81,6 +81,7 @@ public class GestioneNotifiche {
             // prendo l'input di scelta e lo salvo nella variabile scelta
             scelta = myScannerInt.nextInt();
             // effttuo una verifica di correttezza della scelta altrimenti richiedo
+
             while (scelta < 1 || scelta > 4) {
                 System.out.println("Errore: comando non valido, inserisci un comando valido: ");
                 scelta = myScannerInt.nextInt();
@@ -118,6 +119,7 @@ public class GestioneNotifiche {
                     if (scelta == 4) {
                         System.out.println("Programma terminato!");
                         // altrimenti stampo l'errore
+
                     } else {
                         System.out.println("Errore: comando non valido, inserisci un comando valido:");
                     }
@@ -125,6 +127,7 @@ public class GestioneNotifiche {
             }
         } while (scelta != 4); // controllo lo stato della condizione
         // chiusura degli scanner
+
         myScannerStr.close();
         myScannerInt.close();
     }
