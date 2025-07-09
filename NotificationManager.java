@@ -3,7 +3,7 @@ import java.util.List;
 
 public class NotificationManager {
     private static NotificationManager instance; 
-    private Notifica notifica;
+    private static Notifica notifica;
 
     private final List<Observer> observers = new ArrayList<>();
 
@@ -36,5 +36,27 @@ public class NotificationManager {
         }
     }
 
+    public void creaNotifica(int tipo){
+        switch (tipo){
+            case 1 : 
+                notifica = new NotificaTimeStamp(notifica);
+            break;
 
+            case 2 : 
+                notifica = new NotificaMaiuscolo(notifica);
+            break;
+
+            case 3 : 
+                notifica = new NotificaConSmileEmoji(notifica);
+            break;
+
+            case 4 : 
+                notifica = new NotificaConSaluto(notifica);
+            break;
+
+            default : 
+                System.out.println("Scelta non valida.");
+            break;
+        }
+    }
 }

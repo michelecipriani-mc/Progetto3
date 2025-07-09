@@ -5,7 +5,7 @@ public abstract class Utente implements Observer {
     private int id;                        
     private Notifica decorator;
 
-    public User() {
+    public Utente() {
         this.nome = nome;
         this.id = ++contatoreUtenti;
     }
@@ -25,7 +25,7 @@ public abstract class Utente implements Observer {
     @Override
     public void update(String messaggio) {
         if (decorator != null) {
-            messaggio = decorator.elabora(messaggio);
+            messaggio = decorator.creaNotifica(getId(), messaggio);
         }
         System.out.println("[Utente " + id + "] " + messaggio);
     }
